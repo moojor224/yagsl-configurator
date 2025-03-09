@@ -1,10 +1,9 @@
-import * as vscode from 'vscode';
+import * as vscode from "vscode";
 
 export function activate(context: vscode.ExtensionContext) {
 
-    let command = vscode.commands.registerTextEditorCommand('repo_name.command', (editor: vscode.TextEditor, edit: vscode.TextEditorEdit) => {
+    let command = vscode.commands.registerCommand("yagsl-configurator.open", () => {
         // do things here
-        vscode.window.showInformationMessage('command has been run');
     });
 
     context.subscriptions.push(command);

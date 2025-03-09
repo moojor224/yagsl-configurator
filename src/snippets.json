@@ -1,9 +1,0 @@
-{
-    "snippet name": {
-        "prefix": "snippet_prefix",
-        "body": [
-            "snippet content"
-        ],
-        "description": "some descriptive words here"
-    }
-}

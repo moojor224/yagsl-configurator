@@ -1,10 +1,10 @@
 {
-    "name": "repo-name",
-    "displayName": "verbose name",
-    "description": "description",
+    "name": "yagsl-configurator",
+    "displayName": "YAGSL Configurator",
+    "description": "Embeds the YAGSL config generator into a vscode editor",
     "version": "0.0.0",
     "repository": {
-        "url": "https://github.com/USERNAME/REPO_NAME"
+        "url": "https://github.com/moojor224/yagsl-configurator"
     },
     "engines": {
         "vscode": "^1.82.0"
@@ -17,38 +17,10 @@
     "contributes": {
         "commands": [
             {
-                "command": "repo_name.command",
-                "title": "run a command"
+                "command": "yagsl-configurator.command",
+                "title": "Open YAGSL Configurator"
             }
-        ],
-        "snippets": [
-            {
-                "language": "javascript",
-                "path": "./src/snippets.json"
-            }
-        ],
-        "submenus": [
-            {
-                "id": "REPO_NAME.submenu",
-                "label": "example extension"
-            }
-        ],
-        "menus": {
-            "editor/context": [
-                {
-                    "submenu": "REPO_NAME.submenu",
-                    "group": "repo-name"
-                }
-            ],
-            "REPO_NAME.submenu": [
-                {
-                    "when": "resourceLangId == html",
-                    "command": "repo_name.command",
-                    "alt": "repo_name.command",
-                    "group": "REPO_NAME@1"
-                }
-            ]
-        }
+        ]
     },
     "scripts": {
         "compile": "tsc -p ./",
@@ -74,5 +46,8 @@
         "glob": "^10.3.3",
         "mocha": "^10.2.0",
         "typescript": "^5.2.2"
+    },
+    "dependencies": {
+        "simple-git": "^3.27.0"
     }
 }

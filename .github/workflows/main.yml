@@ -34,8 +34,8 @@ jobs:
           
       - name: Setup Git
         run: |
-          git config --global user.name "USERNAME"
-          git config --global user.email "EMAIL@EXAMPLE.COM"
+          git config --global user.name "moojor224"
+          git config --global user.email "moojor224@gmail.com"
           
       - name: Get Current Version Number
         run: |
@@ -60,7 +60,7 @@ jobs:
         uses: actions/cache/restore@v3
         id: restore-cache
         with:
-            path: /home/runner/work/REPO_NAME/REPO_NAME/node_modules
+            path: /home/runner/work/yagsl-configurator/yagsl-configurator/node_modules
             key: ${{ runner.os }}-${{ steps.generate-hash.outputs.CACHE_HASH }}
           
       - name: Install vsce
@@ -70,13 +70,13 @@ jobs:
         uses: actions/cache/save@v3
         id: save-cache
         with:
-          path: /home/runner/work/REPO_NAME/REPO_NAME/node_modules
+          path: /home/runner/work/yagsl-configurator/yagsl-configurator/node_modules
           key: ${{ runner.os }}-${{ steps.generate-hash.outputs.CACHE_HASH }}
 
       - name: Package Extension
         run: |
           echo ${{ runner.os }}-${{ steps.generate-hash.outputs.CACHE_HASH }}
-          npx @vscode/vsce package -o "./REPO_NAME-${{ steps.package-version.outputs.current-version}}.vsix"
+          npx @vscode/vsce package -o "./yagsl-configurator-${{ steps.package-version.outputs.current-version}}.vsix"
         
       - name: Push Tags
         run: |
@@ -86,7 +86,7 @@ jobs:
       - name: GitHub Release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "./REPO_NAME-*"
+          artifacts: "./yagsl-configurator-*"
           bodyFile: ${{ github.workspace }}-CHANGELOG.txt
           tag: ${{ steps.package-version.outputs.current-version}}
           prerelease: false

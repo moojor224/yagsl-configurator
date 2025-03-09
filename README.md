@@ -1,3 +1,3 @@
-# extension name
+# YAGSL Configurator
 
-readme contents
+Embeds the yagsl configuration page into a vscode webview
