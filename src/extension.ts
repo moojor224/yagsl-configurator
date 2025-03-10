@@ -34,7 +34,7 @@ export function activate(context: vscode.ExtensionContext) {
         );
         const document = (new DOMParser).parseFromString(fs.readFileSync(index, "utf-8"), "text/html");
         function replacer(tag: string, property: string) {
-            document.querySelectorAll(`${tag}[${property}]`).forEach((script: Element) => {
+            document.querySelectorAll(`${tag}[${property}]`).forEach(script => {
                 const src = script.getAttribute(property);
                 if (src === null) return;
                 script.setAttribute(property, view.webview.asWebviewUri(vscode.Uri.file(path.join(webview_root, src))).toString());
@@ -44,7 +44,7 @@ export function activate(context: vscode.ExtensionContext) {
         replacer("link", "href");
         const script = document.createElement("script");
         script.innerHTML = `const int = setInterval(()=>{const el = document.getElementById("_defaultStyles");if(el){clearInterval(int);el.remove()}},1000)`;
-        document.body.appendChild(script as unknown as Node);
+        document.body.appendChild(script);
         view.onDidDispose(() => {
             curView = undefined;
         });

@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import { fileURLToPath } from 'url';
 import { DOMParser } from "linkedom";
+import isValidFilename from "valid-filename";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -41,6 +42,7 @@ async function replacer(tag, property) {
                         await fetch(calced).then(res => res.arrayBuffer()).then(data => {
                             const filename = url.split("/").pop();
                             try {
+                                if (!isValidFilename(filename)) return;
                                 fs.writeFileSync(path.join(workingDir, "cdn", filename), Buffer.from(data));
                             } catch { }
                         });

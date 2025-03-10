@@ -47,6 +47,7 @@
         "typescript": "^5.2.2"
     },
     "dependencies": {
-        "linkedom": "^0.18.9"
+        "linkedom": "^0.18.9",
+        "valid-filename": "^4.0.0"
     }
 }
