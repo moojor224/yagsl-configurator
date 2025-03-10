@@ -72,6 +72,7 @@ jobs:
 
       - name: Clone docs and setup static page files
         run: |
+          chmod +x ./build.sh
           ./build.sh
 
       - name: Package Extension
