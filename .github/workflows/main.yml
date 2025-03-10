@@ -1,8 +1,5 @@
 # auto-compiles package and uploads as new release
-# search and replace the following terms:
-    # REPO_NAME
-    # USERNAME
-    # EMAIL@EXAMPLE.COM
+
 name: Package Release
 
 on:
@@ -25,7 +22,7 @@ jobs:
       - name: Setup Node version
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 22.14.0
           
       - name: Create Changelog
         run: |
@@ -72,6 +69,10 @@ jobs:
         with:
           path: /home/runner/work/yagsl-configurator/yagsl-configurator/node_modules
           key: ${{ runner.os }}-${{ steps.generate-hash.outputs.CACHE_HASH }}
+
+      - name: Clone docs and setup static page files
+        run: |
+          ./build.sh
 
       - name: Package Extension
         run: |

@@ -12,12 +12,11 @@
     "categories": [
         "Other"
     ],
-    "activationEvents": [],
     "main": "./out/extension.js",
     "contributes": {
         "commands": [
             {
-                "command": "yagsl-configurator.command",
+                "command": "yagsl-configurator.open",
                 "title": "Open YAGSL Configurator"
             }
         ]
@@ -48,6 +47,6 @@
         "typescript": "^5.2.2"
     },
     "dependencies": {
-        "simple-git": "^3.27.0"
+        "linkedom": "^0.18.9"
     }
 }
